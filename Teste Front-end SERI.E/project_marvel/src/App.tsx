@@ -1,9 +1,11 @@
+import { Header } from "./components/Header"
+
 function App() {
 
   return (
     <>
     <main>
-    <h1>MARVEL</h1>
+      <Header/>
     </main>
     </>
   )
