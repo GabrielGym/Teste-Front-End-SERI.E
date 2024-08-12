@@ -30,6 +30,7 @@ export const SearchFormStyles = styled.form`
         border: 2px solid transparent;
         color: var(--color-red);
         font-size: 1rem;
+        font-weight: 600;
         padding: 12px 20px;
         width: 100%;
         border-radius: 32px;
@@ -41,13 +42,14 @@ export const SearchFormStyles = styled.form`
     }
 
     span {
-        font-size: 1rem;
+        font-size: 0.8;
         color: var(--color-red);
         max-width: 84%;
         width: 100%;
         text-align: end;
         padding-top: 16px;
         padding-right: 32px;
+        font-weight: 600;
     }
 
 `
