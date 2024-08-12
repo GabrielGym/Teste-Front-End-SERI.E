@@ -1,5 +1,6 @@
 import React from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
+import { SearchFormStyles } from '../styles/SearchForm';
 import Lupa from '../../../project_marvel/src/assets/busca/Lupa/Shape@3x.png';
 
 type FormType = {
@@ -14,13 +15,13 @@ export const SearchForm = () => {
     };
 
     return (
-        <form onSubmit={handleSubmit(onSubmit)}>
+        <SearchFormStyles onSubmit={handleSubmit(onSubmit)}>
                 <button type="submit"><img src={Lupa} alt="Pesquisar" /></button>
                 <input
                     {...register('searchTerm', { required: true })}
-                    placeholder="Procure por heróis"
+                    placeholder= "Procure por heróis"
                 />
                 {errors.searchTerm && <span>Escreva o nome de um Heróis</span>}
-            </form>
+            </SearchFormStyles>
     )
 }
