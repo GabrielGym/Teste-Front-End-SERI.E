@@ -1,13 +1,23 @@
-import React, { useState, useEffect, SetStateAction, Dispatch } from 'react';
+import { useState, useEffect, SetStateAction, Dispatch } from 'react';
 import api from '../services/ApiMarvel';
 import EmptyHeart from '../assets/icones/heart/Path Copy 2.png'
 import { ContainerHerosStyle } from '../styles/ContainerHeros'
 import FullHeart from '../assets/icones/heart/Path Copy 7@1,5x.png'
+import { useNavigate } from 'react-router-dom';
+
+export interface ComicItem {
+    resourceURI: string;
+    name: string;
+}
 
 export interface Hero {
     id: number;
     name: string;
     description: string;
+    comics: {
+        available: number;
+        items: ComicItem[];
+    };
     thumbnail: {
         path: string;
         extension: string;
@@ -24,6 +34,7 @@ export const ListHeros = ({ filterHero, setHero, heros }: ListHerosProps) => {
     const [herosFav, setHerosFav] = useState<Hero[]>([]);
     const [loading, setLoading] = useState<boolean>(true);
     const [error, setError] = useState<string | null>(null);
+    const navigate = useNavigate();
 
     useEffect(() => {
         const fetchHeros = async () => {
@@ -67,6 +78,10 @@ export const ListHeros = ({ filterHero, setHero, heros }: ListHerosProps) => {
                     <img
                         src={`${hero.thumbnail.path}.${hero.thumbnail.extension}`}
                         alt={hero.name}
+                        onClick={() => {
+                            const encodedHeroName = encodeURIComponent(hero.name);
+                            navigate(`/HeroPage/${encodedHeroName}`);
+                        }}
                     />
                     <div>
                         <h2>{hero.name}</h2>

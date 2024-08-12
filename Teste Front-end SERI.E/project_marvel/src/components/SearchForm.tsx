@@ -1,8 +1,8 @@
-import React, { Dispatch, SetStateAction } from 'react';
+import { Dispatch, SetStateAction } from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { SearchFormStyles } from '../styles/SearchForm';
 import Lupa from '../../../project_marvel/src/assets/busca/Lupa/Shape@3x.png';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import api from '../services/ApiMarvel';
 import { Hero } from './ListHeros';
 

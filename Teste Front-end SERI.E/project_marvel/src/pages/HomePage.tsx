@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Header } from "../components/Header"
 import { SearchForm } from '../components/SearchForm'
 import { DashboardStyles } from '../styles/Dashboard'
 import ImgHeroi from '../assets/icones/heroi/noun_Superhero_2227044.png'
@@ -7,7 +8,7 @@ import HeroFilterAZ from '../assets/toggle/Group 6.png'
 import EmptyHeart from '../assets/icones/heart/Path Copy 2.png'
 import FullHeart from '../assets/icones/heart/Path Copy 7@1,5x.png'
 import { Hero, ListHeros } from '../components/ListHeros'
-import {FooterStyles} from '../styles/Footer'
+import { FooterStyles } from '../styles/Footer'
 
 
 export const HomePage = () => {
@@ -20,6 +21,7 @@ export const HomePage = () => {
 
     return (
         <main>
+            <Header />
             <SearchForm setHero={setHero} heros={heros} />
             <DashboardStyles>
                 <h2>Encontrados { } heróis</h2>
@@ -39,7 +41,7 @@ export const HomePage = () => {
                 </div>
             </DashboardStyles>
             <ListHeros filterHero={filterHero} setHero={setHero} heros={heros} />
-            <FooterStyles/>
+            <FooterStyles />
         </main>
     )
 }
