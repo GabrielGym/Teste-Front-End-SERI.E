@@ -1,4 +1,4 @@
-import { HeaderStyles } from '../styles/HeaderStyles'
+import { HeaderStyles } from '../styles/Header'
 import Logo from '../../../project_marvel/src/assets/logo/Group.png';
 
 export const Header: React.FC = () => (

@@ -5,7 +5,7 @@ export const SearchFormStyles = styled.form`
     margin: 0 auto;
     display: flex;
     box-sizing: border-box;
-    max-width: 80%;
+    max-width: 64%;
     border: none;
     border-radius: 32px;
     margin-top: 32px;
