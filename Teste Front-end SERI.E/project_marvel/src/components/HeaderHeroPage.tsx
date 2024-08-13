@@ -1,6 +1,5 @@
-import React from 'react';
-import Logo from '../assets/logo/Group.png'
-import Lupa from '../assets/busca/Lupa/Shape.png'
+import Logo from '../assets/logo/group.png'
+import Lupa from '../assets/busca/lupa/shape.png'
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 

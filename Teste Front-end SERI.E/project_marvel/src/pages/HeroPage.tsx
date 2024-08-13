@@ -2,11 +2,11 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { Hero } from "../components/ListHeros";
 import api from "../services/ApiMarvel";
-import EmptyHeart from '../assets/icones/heart/Path Copy 2.png';
-import FullHeart from '../assets/icones/heart/Path Copy 7@1,5x.png';
-import Livro from '../assets/icones/book/Group.png';
-import Filme from '../assets/icones/video/Shape.png';
-import Estrelas from '../assets/review/Path.png';
+import EmptyHeart from '../assets/icones/heart/pathCopy2.png';
+import FullHeart from '../assets/icones/heart/pathCopyX.png';
+import Livro from '../assets/icones/book/group.png';
+import Filme from '../assets/icones/video/shape.png';
+import Estrelas from '../assets/review/path.png';
 import { HeaderHeroPage } from '../components/HeaderHeroPage';
 import { FooterStyles } from "../styles/Footer";
 import { HeroPageStyles } from '../styles/HeroPage'
@@ -51,6 +51,7 @@ export const HeroPage = () => {
                     alert('Herói não encontrado');
                 }
             } catch (err) {
+                console.log(error, err)
                 setError('Erro ao carregar personagem.');
             } finally {
                 setLoading(false);
@@ -58,7 +59,7 @@ export const HeroPage = () => {
         };
 
         fetchHero();
-    }, [heroName]);
+    }, [error, heroName]);
 
     if (loading) {
         return <div style={{ color: 'var(--color-gray1)', fontSize: '2rem', textAlign: 'center', padding: '46px 0px' }}>Carregando Herói, tenha paciência!!</div>;

@@ -1,7 +1,7 @@
 import { Dispatch, SetStateAction } from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { SearchFormStyles } from '../styles/SearchForm';
-import Lupa from '../../../project_marvel/src/assets/busca/Lupa/Shape@3x.png';
+import Lupa from '../assets/busca/lupa/shape.png';
 import { useState } from 'react';
 import api from '../services/ApiMarvel';
 import { Hero } from './ListHeros';
@@ -31,9 +31,11 @@ export const SearchForm = ({ setHero, heros }: SetSearchHeroProps) => {
             if (foundHero.length > 0) {
                 setHero([foundHero[0]]);
             } else {
+                console.log(heros)
                 alert('Herói não encontrado');
             }
         } catch (err) {
+            console.log(error, err)
             setError('Erro ao carregar personagem.');
         }
     };

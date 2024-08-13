@@ -1,8 +1,8 @@
 import { useState, useEffect, SetStateAction, Dispatch } from 'react';
 import api from '../services/ApiMarvel';
-import EmptyHeart from '../assets/icones/heart/Path Copy 2.png'
+import EmptyHeart from '../assets/icones/heart/pathCopy2.png'
 import { ContainerHerosStyle, ImageContainer, Tooltip } from '../styles/ContainerHeros'
-import FullHeart from '../assets/icones/heart/Path Copy 7@1,5x.png'
+import FullHeart from '../assets/icones/heart/pathCopyX.png'
 import { useNavigate } from 'react-router-dom';
 
 export interface ComicItem {
@@ -47,13 +47,14 @@ export const ListHeros = ({ filterHero, setHero, heros }: ListHerosProps) => {
                 setHero(response.data.data.results);
                 setLoading(false);
             } catch (err) {
+                console.log(error, err);
                 setError('Erro ao carregar personagens.');
                 setLoading(false);
             }
         };
-
         fetchHeros();
-    }, []);
+    }, [error, setHero]);
+
 
     const toggleFavorite = (hero: Hero) => {
         if (herosFav.some(favHero => favHero.id === hero.id)) {
@@ -75,7 +76,7 @@ export const ListHeros = ({ filterHero, setHero, heros }: ListHerosProps) => {
         <ContainerHerosStyle>
             {filterHero ? heros.map((hero) => (
                 <li key={hero.id}>
-                     <ImageContainer>
+                    <ImageContainer>
                         <img
                             src={`${hero.thumbnail.path}.${hero.thumbnail.extension}`}
                             alt={hero.name}
