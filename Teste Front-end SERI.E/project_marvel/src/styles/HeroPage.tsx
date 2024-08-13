@@ -54,6 +54,15 @@ export const HeroPageStyles = styled.main`
                 border-radius: 32px;
             }
         }
+        
+        > button {
+            margin-left: 24px;
+            padding: 10px 18px;
+            background: transparent;
+            border: 4px solid #FFFFFF;
+            border-radius: 32px;
+            color: var(--color-gray1);
+            font-weight: 600;}
     }
 
     > div {
@@ -104,12 +113,16 @@ export const HeroPageStyles = styled.main`
                     font-weight: 600;
                 }
 
+                
+
                 > div {
                     display: flex;
                     flex-direction: column;
                     width: 100%;
                     justify-content: space-around;
                     gap: 12px;
+                    max-width: 70px;
+
                     
                     > h3 {
                         color: var(--color-gray1);
@@ -136,6 +149,11 @@ export const HeroPageStyles = styled.main`
         > img {
             max-width: 68%;
         }
+    }
+        
+    .containerAssessment{
+        justify-content: flex-start;
+        align-items: center;
     }
 
     .containerComics {

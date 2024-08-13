@@ -1,7 +1,7 @@
 import { useState, useEffect, SetStateAction, Dispatch } from 'react';
 import api from '../services/ApiMarvel';
 import EmptyHeart from '../assets/icones/heart/Path Copy 2.png'
-import { ContainerHerosStyle } from '../styles/ContainerHeros'
+import { ContainerHerosStyle, ImageContainer, Tooltip } from '../styles/ContainerHeros'
 import FullHeart from '../assets/icones/heart/Path Copy 7@1,5x.png'
 import { useNavigate } from 'react-router-dom';
 
@@ -68,27 +68,32 @@ export const ListHeros = ({ filterHero, setHero, heros }: ListHerosProps) => {
     };
 
     if (loading) {
-        return <div style={{ color: 'var(--color-gray1)', fontSize: '2rem', textAlign: 'center', padding: '46px 0px'}}>Carregando Heróis tenha paciência!!</div>;
+        return <div style={{ color: 'var(--color-gray1)', fontSize: '2rem', textAlign: 'center', padding: '46px 0px' }}>Carregando Heróis tenha paciência!!</div>;
     }
 
     return (
         <ContainerHerosStyle>
             {filterHero ? heros.map((hero) => (
                 <li key={hero.id}>
-                    <img
-                        src={`${hero.thumbnail.path}.${hero.thumbnail.extension}`}
-                        alt={hero.name}
-                        onClick={() => {
-                            const encodedHeroName = encodeURIComponent(hero.name);
-                            navigate(`/HeroPage/${encodedHeroName}`);
-                        }}
-                    />
+                     <ImageContainer>
+                        <img
+                            src={`${hero.thumbnail.path}.${hero.thumbnail.extension}`}
+                            alt={hero.name}
+                            onClick={() => {
+                                const encodedHeroName = encodeURIComponent(hero.name);
+                                navigate(`/HeroPage/${encodedHeroName}`)
+                            }}
+                        />
+                        <Tooltip>
+                            Para mais informações, clique na imagem!!
+                        </Tooltip>
+                    </ImageContainer>
                     <div>
                         <h2>{hero.name}</h2>
                         <button onClick={() => toggleFavorite(hero)}>
-                            <img 
-                                src={herosFav.some(favHero => favHero.id === hero.id) ? FullHeart : EmptyHeart} 
-                                alt="Heróis" 
+                            <img
+                                src={herosFav.some(favHero => favHero.id === hero.id) ? FullHeart : EmptyHeart}
+                                alt="Heróis"
                             />
                         </button>
                     </div>
@@ -102,15 +107,15 @@ export const ListHeros = ({ filterHero, setHero, heros }: ListHerosProps) => {
                     <div>
                         <h2>{hero.name}</h2>
                         <button onClick={() => toggleFavorite(hero)}>
-                            <img 
-                                src={herosFav.some(favHero => favHero.id === hero.id) ? FullHeart : EmptyHeart} 
-                                alt="Heróis" 
+                            <img
+                                src={herosFav.some(favHero => favHero.id === hero.id) ? FullHeart : EmptyHeart}
+                                alt="Heróis"
                             />
                         </button>
                     </div>
                 </li>
             ))}
-            
+
         </ContainerHerosStyle>
     );
 };

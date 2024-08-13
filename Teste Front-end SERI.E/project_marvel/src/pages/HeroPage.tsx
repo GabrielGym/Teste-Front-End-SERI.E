@@ -41,7 +41,7 @@ export const HeroPage = () => {
                 if (foundHero) {
                     setHero(foundHero);
                     const comicPromises = foundHero.comics.items.map((comicItem: { resourceURI: string }) =>
-                        api.get(comicItem.resourceURI)
+                        api.get(comicItem.resourceURI.replace('http://', 'https://'))
                     );
 
                     const comicResponses = await Promise.all(comicPromises);
@@ -94,7 +94,7 @@ export const HeroPage = () => {
                             <span><img src={Filme} alt="Filmes" /> <h3></h3></span>
                         </div>
                     </div>
-                    <div>
+                    <div className="containerAssessment">
                         <h3>Rating:</h3>
                         <img src={Estrelas} alt="Avaliação" />
                     </div>

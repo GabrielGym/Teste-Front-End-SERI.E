@@ -1,8 +1,8 @@
 import axios from 'axios';
 import md5 from 'md5';
 
-const publicKey = '905c5ae9bfbeff154c34d0c60990236c';
-const privateKey = '7d6df5827e203946e0d1ca2b6e9110afc2e72f08';
+const publicKey = '46d3e1fb10df77445e403e1890a264ef';
+const privateKey = '5d4632b49001b8fd4da3550cb28b28dead0ddd89';
 const baseUrl = 'https://gateway.marvel.com/v1/public/characters';
 
 const ts = new Date().getTime().toString();

@@ -26,6 +26,8 @@ export const HeaderHeroPage = () => {
                 />
                 {errors.searchTerm && <span>Escreva o nome de um Heróis</span>}
             </form>
+
+            <button onClick={() => navigate('/')}>Página inicial</button>
         </header>
     )
 }
